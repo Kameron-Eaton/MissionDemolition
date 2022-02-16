@@ -3,7 +3,7 @@
  * Date Created: Feb 14, 2022
  * 
  * Last Edited by: NA
- * Last Edited: Feb 14, 2022
+ * Last Edited: Feb 16, 2022
  * 
  * Description: Camera to follow projectile
  ****/
@@ -32,9 +32,31 @@ public class FollowCam : MonoBehaviour
  
     void FixedUpdate()
     {
-        if (POI == null) return; //do nothing if no poi
+        //if (POI == null) return; //do nothing if no poi
 
-        Vector3 destination = POI.transform.position;
+        //Vector3 destination = POI.transform.position;
+
+        Vector3 destination;
+        if(POI == null)
+        {
+            destination = Vector3.zero;
+        }//end if
+
+        else
+        {
+            destination = POI.transform.position;
+            if(POI.tag == "Projectile")
+            {
+                if (POI.GetComponent<Rigidbody>().IsSleeping())
+                {
+                    POI = null; //null the POI if the rigidbody is asleep
+                    return; //in the next update
+                }//end if
+            }//end if
+        }//end else
+
+
+
 
         destination.x = Mathf.Max(minXY.x, destination.x);
         destination.y = Mathf.Max(minXY.y, destination.y);
