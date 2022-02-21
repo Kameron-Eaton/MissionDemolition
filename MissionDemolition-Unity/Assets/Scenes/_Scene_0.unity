@@ -1238,7 +1238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabProjectile: {fileID: 7440170702025250657, guid: 96478610a78263349960cfa68d24b3c0, type: 3}
-  velocityMultiplier: 8
+  velocityMultiplier: 9
   launchPoint: {fileID: 0}
   launchPos: {x: 0, y: 0, z: 0}
   projectile: {fileID: 0}
