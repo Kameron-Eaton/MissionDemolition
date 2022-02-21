@@ -3,7 +3,7 @@
  * Date Created: Feb 9, 2022
  * 
  * Last Edited by: NA
- * Last Edited: Feb 9, 2022
+ * Last Edited: Feb 21, 2022
  * 
  * Description: Manages the behavior of the slingshot
  ****/
@@ -83,6 +83,8 @@ public class Slingshot : MonoBehaviour
             FollowCam.POI = projectile; //set the poi for camera
 
             projectile = null; //forgets the last instance of projectile
+            MissionDemolition.ShotFired();
+            ProjectileLine.S.poi = projectile;
         }
         
     }//end Update
